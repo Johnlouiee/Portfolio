@@ -68,24 +68,33 @@ body {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  color: #667eea;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  font-weight: 600;
+  text-shadow: none;
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.3);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
 }
 
 .btn-secondary {
   background: transparent;
-  color: #667eea;
-  border: 2px solid #667eea;
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  font-weight: 600;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .btn-secondary:hover {
-  background: #667eea;
-  color: white;
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  border-color: #ffffff;
+  backdrop-filter: blur(10px);
 }
 
 /* Card Styles */

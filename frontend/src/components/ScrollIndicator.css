@@ -1,0 +1,118 @@
+.scroll-indicator {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.scroll-progress {
+  width: 2px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 1px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 1px;
+  transition: width 0.1s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.scroll-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  padding: 12px 16px;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.scroll-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.scroll-button svg {
+  font-size: 1.2rem;
+  color: #667eea;
+}
+
+.scroll-button span {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Dark mode */
+.dark .scroll-progress {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.dark .scroll-button {
+  background: rgba(0, 0, 0, 0.1);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
+
+.dark .scroll-button:hover {
+  background: rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .scroll-indicator {
+    bottom: 20px;
+  }
+  
+  .scroll-progress {
+    height: 40px;
+  }
+  
+  .scroll-button {
+    padding: 10px 14px;
+  }
+  
+  .scroll-button svg {
+    font-size: 1rem;
+  }
+  
+  .scroll-button span {
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .scroll-indicator {
+    bottom: 15px;
+  }
+  
+  .scroll-progress {
+    height: 30px;
+  }
+  
+  .scroll-button {
+    padding: 8px 12px;
+  }
+}

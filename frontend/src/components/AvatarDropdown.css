@@ -1,0 +1,254 @@
+.avatar-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.avatar-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.avatar-button:hover {
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+  transform: translateY(-2px);
+}
+
+.avatar-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-status {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 12px;
+  height: 12px;
+  background: #28a745;
+  border: 2px solid white;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  width: 280px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.dropdown-header {
+  padding: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.user-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.user-details h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  color: white;
+}
+
+.user-details p {
+  font-size: 0.8rem;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.dropdown-divider {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
+  margin: 0;
+}
+
+.dropdown-items {
+  padding: 8px 0;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 20px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  color: #2c3e50;
+  text-align: left;
+}
+
+.dropdown-item:hover {
+  background: rgba(102, 126, 234, 0.1);
+  color: #667eea;
+}
+
+.item-icon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #667eea;
+  font-size: 0.9rem;
+}
+
+.item-label {
+  font-weight: 500;
+}
+
+.dropdown-footer {
+  padding: 8px 0;
+}
+
+.logout-button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 20px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  color: #dc3545;
+  text-align: left;
+}
+
+.logout-button:hover {
+  background: rgba(220, 53, 69, 0.1);
+  color: #dc3545;
+}
+
+.logout-button svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Dark mode styles */
+.dark .dropdown-menu {
+  background: var(--bg-secondary);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark .dropdown-item {
+  color: var(--text-primary);
+}
+
+.dark .dropdown-item:hover {
+  background: rgba(102, 126, 234, 0.2);
+  color: var(--accent);
+}
+
+.dark .dropdown-divider {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.dark .logout-button {
+  color: #dc3545;
+}
+
+.dark .logout-button:hover {
+  background: rgba(220, 53, 69, 0.2);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .dropdown-menu {
+    width: 260px;
+    right: -10px;
+  }
+  
+  .avatar-button {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .avatar-image {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .user-avatar {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dropdown-menu {
+    width: 240px;
+    right: -20px;
+  }
+  
+  .dropdown-header {
+    padding: 15px;
+  }
+  
+  .user-info {
+    gap: 10px;
+  }
+  
+  .user-details h4 {
+    font-size: 0.9rem;
+  }
+  
+  .user-details p {
+    font-size: 0.75rem;
+  }
+}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import AvatarDropdown from './AvatarDropdown';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -68,8 +69,11 @@ const Navbar = () => {
           ))}
         </div>
 
-        <div className="nav-toggle" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <FaTimes /> : <FaBars />}
+        <div className="nav-actions">
+          <AvatarDropdown />
+          <div className="nav-toggle" onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? <FaTimes /> : <FaBars />}
+          </div>
         </div>
       </div>
     </motion.nav>

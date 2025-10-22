@@ -13,6 +13,9 @@ import Experience from './components/Experience';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Chatbot from './components/Chatbot';
+import DarkModeToggle from './components/DarkModeToggle';
+import ParticleBackground from './components/ParticleBackground';
+import ScrollIndicator from './components/ScrollIndicator';
 
 function App() {
   return (
@@ -37,6 +40,9 @@ function App() {
         </Routes>
         <Footer />
         <Chatbot />
+        <DarkModeToggle />
+        <ParticleBackground />
+        <ScrollIndicator />
       </div>
     </Router>
   );

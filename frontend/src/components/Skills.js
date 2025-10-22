@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FaReact, FaPython, FaJs, FaGitAlt, FaDatabase } from 'react-icons/fa';
+import { FaReact, FaPython, FaJs, FaGitAlt, FaDatabase, FaCode } from 'react-icons/fa';
 import './Skills.css';
 
 const Skills = () => {
@@ -35,6 +35,7 @@ const Skills = () => {
       title: 'Backend',
       skills: [
         { name: 'Python', icon: FaPython, level: 88 },
+        { name: 'PHP', icon: FaCode, level: 85 },
         { name: 'Git', icon: FaGitAlt, level: 90 }
       ]
     },

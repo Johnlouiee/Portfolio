@@ -121,22 +121,53 @@ const Hero = () => {
                   alt="John Louie N. Purisima" 
                   className="profile-image"
                 />
+                <div className="image-glow"></div>
               </div>
               <div className="floating-elements">
                 <motion.div
                   className="floating-element element-1"
-                  animate={{ y: [-10, 10, -10] }}
+                  animate={{ 
+                    y: [-10, 10, -10],
+                    rotate: [0, 360, 0],
+                    scale: [1, 1.2, 1]
+                  }}
                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                 />
                 <motion.div
                   className="floating-element element-2"
-                  animate={{ y: [10, -10, 10] }}
+                  animate={{ 
+                    y: [10, -10, 10],
+                    x: [-5, 5, -5],
+                    rotate: [0, -180, 0]
+                  }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                 />
                 <motion.div
                   className="floating-element element-3"
-                  animate={{ y: [-5, 15, -5] }}
+                  animate={{ 
+                    y: [-5, 15, -5],
+                    scale: [1, 0.8, 1],
+                    rotate: [0, 180, 360]
+                  }}
                   transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                />
+                <motion.div
+                  className="floating-element element-4"
+                  animate={{ 
+                    y: [0, -20, 0],
+                    x: [0, 10, 0],
+                    rotate: [0, 90, 180, 270, 360]
+                  }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                />
+                <motion.div
+                  className="floating-element element-5"
+                  animate={{ 
+                    y: [5, -15, 5],
+                    x: [5, -5, 5],
+                    scale: [0.8, 1.3, 0.8]
+                  }}
+                  transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
                 />
               </div>
             </div>
