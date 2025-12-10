@@ -48,11 +48,11 @@ npm start
 
 ## Render Deployment
 
-### Frontend Service
+### Frontend Service (Static Site)
 
-1. **Create a new Web Service** on Render
+1. **Create a new Static Site** on Render (not Web Service)
 2. **Repository**: Your GitHub repo
-3. **Root Directory**: Leave empty (root of repo) OR set to `frontend` if you move files
+3. **Root Directory**: `frontend`
 4. **Build Command**: 
    ```bash
    npm install && npm run build
@@ -61,17 +61,16 @@ npm start
    ```bash
    chmod +x frontend/build.sh && ./frontend/build.sh
    ```
-5. **Start Command**: 
-   ```bash
-   npx serve -s build -l $PORT
+5. **Publish Directory**: 
    ```
-   Or if using Procfile:
-   ```bash
-   cd frontend && cat Procfile
+   build
    ```
+   ⚠️ **Important**: This is the directory where React outputs the production build. It's created inside the `frontend` folder.
 6. **Environment Variables**:
-   - `REACT_APP_API_URL=https://your-backend-service.onrender.com`
+   - `REACT_APP_API_URL=https://LPurisima-server.onrender.com`
    - `NODE_ENV=production`
+   
+**Note**: Static sites don't need a start command or Procfile. Render automatically serves files from the publish directory.
 
 ### Backend Service
 

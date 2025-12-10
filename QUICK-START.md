@@ -57,13 +57,17 @@ REACT_APP_API_URL=http://localhost:5000 npm start
 
 ## 🚀 Render Deployment
 
-### Frontend Service
+### Frontend Service (Static Site)
 
+- **Service Type**: Static Site
 - **Root Directory**: `frontend`
 - **Build Command**: `npm install && npm run build`
-- **Start Command**: `npx serve -s build -l $PORT`
+- **Publish Directory**: `build`
 - **Environment Variables**:
-  - `REACT_APP_API_URL=https://your-backend-service.onrender.com`
+  - `REACT_APP_API_URL=https://LPurisima-server.onrender.com`
+  - `NODE_ENV=production`
+
+**Note**: No start command needed for static sites!
 
 ### Backend Service
 

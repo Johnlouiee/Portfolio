@@ -33,6 +33,9 @@ Create a `.env` file in the backend directory:
 PORT=5000
 NODE_ENV=production
 
+# Frontend URL (for CORS)
+FRONTEND_URL=https://LPurisima-portfolio.onrender.com
+
 # Flowise Configuration
 FLOWISE_API_URL=https://your-flowise-instance.com
 FLOWISE_CHATFLOW_ID=your_chatflow_id_here

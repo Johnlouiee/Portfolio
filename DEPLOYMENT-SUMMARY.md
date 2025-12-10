@@ -8,13 +8,12 @@ Your project is now configured for separate frontend and backend deployments!
 
 ```
 Portfolio/
-├── frontend/              # Frontend service
+├── frontend/              # Frontend service (Static Site)
 │   ├── src/              # React source code
 │   ├── public/           # Public assets
 │   ├── package.json      # Frontend dependencies
-│   ├── Procfile          # Frontend deployment config
 │   └── build.sh          # Build script
-├── backend/              # Backend service
+├── backend/              # Backend service (Web Service)
 │   ├── server.js         # Express API server
 │   ├── package.json      # Backend dependencies
 │   ├── Procfile          # Backend deployment config
@@ -24,17 +23,20 @@ Portfolio/
 
 ## 🚀 Render Deployment
 
-### Frontend Service
+### Frontend Service (Static Site)
 
 **Configuration:**
+- **Service Type**: Static Site (not Web Service)
 - **Root Directory**: `frontend`
 - **Build Command**: `npm install && npm run build`
-- **Start Command**: `npx serve -s build -l $PORT`
+- **Publish Directory**: `build`
 - **Environment Variables**:
   ```env
-  REACT_APP_API_URL=https://your-backend-service.onrender.com
+  REACT_APP_API_URL=https://LPurisima-server.onrender.com
   NODE_ENV=production
   ```
+
+**Note**: Static sites don't need a start command or Procfile. Render automatically serves files from the publish directory.
 
 ### Backend Service
 
@@ -45,6 +47,7 @@ Portfolio/
 - **Environment Variables**:
   ```env
   PORT=5000  # Auto-set by Render
+  FRONTEND_URL=https://LPurisima-portfolio.onrender.com  # For CORS
   FLOWISE_API_URL=https://your-flowise-instance.com
   FLOWISE_CHATFLOW_ID=your_chatflow_id
   FLOWISE_API_KEY=your_api_key  # Optional
@@ -85,8 +88,8 @@ REACT_APP_API_URL=http://localhost:5000 npm start
 
 - ✅ Frontend package.json with React dependencies
 - ✅ Backend package.json with Express dependencies
-- ✅ Frontend Procfile for Render deployment
-- ✅ Backend Procfile for Render deployment
+- ✅ Frontend configured for Static Site deployment (no Procfile needed)
+- ✅ Backend Procfile for Web Service deployment
 - ✅ Build scripts for both services
 - ✅ Backend server.js (API only, no static files)
 - ✅ Frontend API config updated for separate deployment

@@ -29,20 +29,27 @@ Builds the app for production to the `build` folder.
 Create a `.env` file in the frontend directory:
 
 ```env
-REACT_APP_API_URL=https://your-backend-url.onrender.com
+REACT_APP_API_URL=https://LPurisima-server.onrender.com
 ```
 
 If `REACT_APP_API_URL` is not set, it will use the default backend URL.
 
 ## Deployment
 
-### Render Deployment
+### Render Static Site Deployment
 
-1. **Root Directory**: `frontend` (or set to root if using monorepo)
-2. **Build Command**: `npm install && npm run build`
-3. **Start Command**: `npx serve -s build -l $PORT`
-4. **Environment Variables**:
-   - `REACT_APP_API_URL=https://your-backend-url.onrender.com`
+1. **Service Type**: Static Site (not Web Service)
+2. **Root Directory**: `frontend`
+3. **Build Command**: `npm install && npm run build`
+4. **Publish Directory**: `build`
+5. **Environment Variables**:
+   - `REACT_APP_API_URL=https://LPurisima-server.onrender.com`
+   - `NODE_ENV=production`
+
+**Important**: 
+- Static sites don't need a start command or Procfile
+- The `build` directory is automatically served by Render
+- Environment variables must be set before building
 
 ### Alternative: Using Static Site Hosting
 

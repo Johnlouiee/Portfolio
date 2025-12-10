@@ -12,7 +12,7 @@ const getApiBaseUrl = () => {
   if (process.env.NODE_ENV === 'production') {
     // Frontend and backend are deployed separately
     // Use REACT_APP_API_URL if set, otherwise use default backend URL
-    return process.env.REACT_APP_API_URL || 'https://portfolio-backend-qwi4.onrender.com';
+    return process.env.REACT_APP_API_URL || 'https://LPurisima-server.onrender.com';
   }
   
   // In development (localhost), use empty string to leverage proxy
