@@ -126,6 +126,49 @@ def chatbot():
         phone = "09083347352"
         github = "https://github.com/Johnlouiee"
         
+        # System/Portfolio technical information
+        system_tech_stack = {
+            "frontend": {
+                "framework": "React",
+                "language": "JavaScript",
+                "styling": "CSS3",
+                "animations": "Framer Motion",
+                "icons": "React Icons",
+                "routing": "React Router"
+            },
+            "backend": {
+                "framework": "Flask (Python)",
+                "language": "Python 3",
+                "cors": "Flask-CORS",
+                "environment": "python-dotenv"
+            },
+            "features": [
+                "Responsive Design",
+                "Dark Mode Toggle",
+                "Particle Background Animation",
+                "Interactive Chatbot",
+                "Contact Form",
+                "Resume Generator",
+                "Profile Management",
+                "Settings Modal",
+                "Favorites System"
+            ],
+            "deployment": "Can be deployed on various platforms",
+            "architecture": "RESTful API with React SPA"
+        }
+        
+        # Developer technical background
+        dev_technical_info = {
+            "programming_languages": ["JavaScript", "Python", "PHP", "TypeScript", "HTML5", "CSS3"],
+            "frontend_tech": ["React", "React Router", "Framer Motion", "React Icons", "Responsive Design"],
+            "backend_tech": ["Flask", "Python", "RESTful APIs", "CORS handling"],
+            "database": ["MySQL", "SQL", "Database Design"],
+            "tools": ["Git", "GitHub", "Version Control", "npm", "pip"],
+            "practices": ["Component-based Architecture", "API Integration", "Responsive Web Design", "Modern JavaScript (ES6+)"],
+            "years_experience": "2+ years of coding practice",
+            "focus_areas": ["Full-stack Development", "Web Applications", "User Interface Design", "Database Management"]
+        }
+        
         # Get portfolio data
         projects = PORTFOLIO_DATA.get('projects', [])
         skills = PORTFOLIO_DATA.get('about', {}).get('skills', [])
@@ -272,9 +315,147 @@ def chatbot():
             })
         
         # Check for website/portfolio tech questions
-        if any(word in user_message for word in ['this website', 'this site', 'portfolio website', 'built with', 'what technology', 'tech stack']):
-            response = "This portfolio website is built with React for the frontend and Python Flask for the backend. "
-            response += "It uses modern web technologies including JavaScript, CSS, and responsive design principles."
+        if any(word in user_message for word in ['this website', 'this site', 'portfolio website', 'built with', 'what technology', 'tech stack', 'system', 'architecture']):
+            response = "This portfolio website is built with:\n\n"
+            response += "**Frontend:**\n"
+            response += f"• Framework: {system_tech_stack['frontend']['framework']}\n"
+            response += f"• Language: {system_tech_stack['frontend']['language']}\n"
+            response += f"• Styling: {system_tech_stack['frontend']['styling']}\n"
+            response += f"• Animations: {system_tech_stack['frontend']['animations']}\n"
+            response += f"• Routing: {system_tech_stack['frontend']['routing']}\n\n"
+            response += "**Backend:**\n"
+            response += f"• Framework: {system_tech_stack['backend']['framework']}\n"
+            response += f"• Language: {system_tech_stack['backend']['language']}\n"
+            response += f"• API: RESTful API architecture\n\n"
+            response += f"**Features:** {', '.join(system_tech_stack['features'])}\n\n"
+            response += f"**Architecture:** {system_tech_stack['architecture']}"
+            return jsonify({
+                'response': response,
+                'timestamp': str(datetime.now())
+            })
+        
+        # Check for frontend technology questions
+        if any(word in user_message for word in ['frontend', 'react', 'ui', 'user interface', 'client side', 'framer motion']):
+            response = "**Frontend Technologies Used:**\n\n"
+            response += f"• **Framework:** {system_tech_stack['frontend']['framework']} - Component-based UI library\n"
+            response += f"• **Language:** {system_tech_stack['frontend']['language']} (ES6+)\n"
+            response += f"• **Styling:** {system_tech_stack['frontend']['styling']} with custom animations\n"
+            response += f"• **Animations:** {system_tech_stack['frontend']['animations']} for smooth transitions\n"
+            response += f"• **Icons:** {system_tech_stack['frontend']['icons']} library\n"
+            response += f"• **Routing:** {system_tech_stack['frontend']['routing']} for navigation\n"
+            response += "\nThe frontend features responsive design, dark mode, particle effects, and interactive components."
+            return jsonify({
+                'response': response,
+                'timestamp': str(datetime.now())
+            })
+        
+        # Check for backend technology questions
+        if any(word in user_message for word in ['backend', 'server', 'api', 'flask', 'python backend', 'server side']):
+            response = "**Backend Technologies Used:**\n\n"
+            response += f"• **Framework:** {system_tech_stack['backend']['framework']}\n"
+            response += f"• **Language:** {system_tech_stack['backend']['language']}\n"
+            response += f"• **CORS:** {system_tech_stack['backend']['cors']} for cross-origin requests\n"
+            response += f"• **Environment:** {system_tech_stack['backend']['environment']} for configuration\n"
+            response += "\nThe backend provides RESTful API endpoints for portfolio data, chatbot responses, and contact form submissions."
+            return jsonify({
+                'response': response,
+                'timestamp': str(datetime.now())
+            })
+        
+        # Check for developer's technical skills and expertise
+        if any(word in user_message for word in ['technical skills', 'expertise', 'proficiency', 'what technologies', 'tech expertise', 'coding skills']):
+            response = "**John Louie's Technical Expertise:**\n\n"
+            response += f"**Programming Languages:** {', '.join(dev_technical_info['programming_languages'])}\n\n"
+            response += f"**Frontend Technologies:** {', '.join(dev_technical_info['frontend_tech'])}\n\n"
+            response += f"**Backend Technologies:** {', '.join(dev_technical_info['backend_tech'])}\n\n"
+            response += f"**Database:** {', '.join(dev_technical_info['database'])}\n\n"
+            response += f"**Development Tools:** {', '.join(dev_technical_info['tools'])}\n\n"
+            response += f"**Best Practices:** {', '.join(dev_technical_info['practices'])}\n\n"
+            response += f"**Experience:** {dev_technical_info['years_experience']}\n"
+            response += f"**Focus Areas:** {', '.join(dev_technical_info['focus_areas'])}"
+            return jsonify({
+                'response': response,
+                'timestamp': str(datetime.now())
+            })
+        
+        # Check for development practices and methodologies
+        if any(word in user_message for word in ['development practices', 'coding practices', 'methodology', 'approach', 'how does he code', 'coding style']):
+            response = "**Development Practices & Approach:**\n\n"
+            response += f"• **Architecture:** {', '.join(dev_technical_info['practices'])}\n"
+            response += "• **Component-based Development:** Building reusable React components\n"
+            response += "• **RESTful API Design:** Clean API endpoints for data management\n"
+            response += "• **Responsive Design:** Mobile-first approach for all projects\n"
+            response += "• **Version Control:** Using Git and GitHub for project management\n"
+            response += "• **Modern JavaScript:** ES6+ features and best practices\n"
+            response += "• **Code Organization:** Modular and maintainable code structure"
+            return jsonify({
+                'response': response,
+                'timestamp': str(datetime.now())
+            })
+        
+        # Check for specific technology deep-dives
+        if any(word in user_message for word in ['framer motion', 'animations', 'particle', 'dark mode', 'responsive']):
+            if 'framer motion' in user_message or 'animations' in user_message:
+                response = "**Framer Motion** is used in this portfolio for smooth animations and transitions. "
+                response += "It provides declarative animations for React components, including page transitions, "
+                response += "hover effects, and scroll-triggered animations. The portfolio uses it for component "
+                response += "entrances, interactive elements, and visual feedback."
+            elif 'particle' in user_message:
+                response = "The **Particle Background** feature uses JavaScript to create an interactive animated "
+                response += "background with moving particles. This adds a modern, dynamic visual element to the "
+                response += "portfolio, enhancing user engagement and visual appeal."
+            elif 'dark mode' in user_message:
+                response = "The **Dark Mode Toggle** allows users to switch between light and dark themes. "
+                response += "This feature improves user experience by providing visual comfort and follows modern "
+                response += "web design trends. The preference is typically stored in browser storage."
+            elif 'responsive' in user_message:
+                response = "The portfolio uses **Responsive Design** principles to ensure optimal viewing "
+                response += "experience across all devices (desktop, tablet, mobile). This includes flexible "
+                response += "layouts, media queries, and adaptive component sizing."
+            return jsonify({
+                'response': response,
+                'timestamp': str(datetime.now())
+            })
+        
+        # Check for system features
+        if any(word in user_message for word in ['features', 'what features', 'capabilities', 'what can this do', 'functionality']):
+            response = "**Portfolio System Features:**\n\n"
+            for i, feature in enumerate(system_tech_stack['features'], 1):
+                response += f"{i}. {feature}\n"
+            response += "\nThe system also includes API endpoints for dynamic content, chatbot integration, "
+            response += "and contact form handling. All features are designed with user experience in mind."
+            return jsonify({
+                'response': response,
+                'timestamp': str(datetime.now())
+            })
+        
+        # Check for developer's coding journey and experience
+        if any(word in user_message for word in ['coding journey', 'learning', 'how long', 'experience level', 'development journey']):
+            response = f"**John Louie's Coding Journey:**\n\n"
+            response += f"• **Experience:** {dev_technical_info['years_experience']}\n"
+            response += "• **Started:** Began coding practice 2 years ago out of curiosity\n"
+            response += "• **Evolution:** From curiosity to deep passion for building digital solutions\n"
+            response += "• **Current Status:** 4th year BSIT student at University of Cebu\n"
+            response += "• **Focus:** Full-stack development with modern web technologies\n"
+            response += "• **Approach:** Continuous learning and staying updated with tech trends\n"
+            response += "• **Projects:** Built multiple projects including portfolio, management systems, and web applications"
+            return jsonify({
+                'response': response,
+                'timestamp': str(datetime.now())
+            })
+        
+        # Check for API and system architecture questions
+        if any(word in user_message for word in ['api', 'endpoints', 'architecture', 'system design', 'how it works']):
+            response = "**System Architecture:**\n\n"
+            response += f"**Type:** {system_tech_stack['architecture']}\n\n"
+            response += "**API Endpoints:**\n"
+            response += "• `/api/portfolio` - GET portfolio data (projects, skills, experience)\n"
+            response += "• `/api/chatbot` - POST chatbot interactions\n"
+            response += "• `/api/contact` - POST contact form submissions\n"
+            response += "• `/api/health` - GET system health check\n\n"
+            response += "**Communication:** Frontend (React) communicates with Backend (Flask) via RESTful API calls.\n"
+            response += "**Data Flow:** JSON data exchange between client and server.\n"
+            response += "**CORS:** Enabled for cross-origin resource sharing."
             return jsonify({
                 'response': response,
                 'timestamp': str(datetime.now())
@@ -283,7 +464,14 @@ def chatbot():
         # Greetings
         if any(word in user_message for word in ['hello', 'hi', 'hey', 'greetings']):
             response = "Hello! I'm John Louie's portfolio assistant. "
-            response += "I can help you learn about his projects, skills, technologies, education, and contact information. What would you like to know?"
+            response += "I can help you learn about:\n"
+            response += "• His projects, skills, and experience\n"
+            response += "• Technical skills and expertise\n"
+            response += "• This portfolio system's tech stack and architecture\n"
+            response += "• Development practices and methodologies\n"
+            response += "• Education and background\n"
+            response += "• Contact information\n\n"
+            response += "Ask me anything tech-related or about the developer!"
             return jsonify({
                 'response': response,
                 'timestamp': str(datetime.now())
@@ -291,13 +479,27 @@ def chatbot():
         
         # Help
         if any(word in user_message for word in ['help', 'what can you do', 'what do you know', 'capabilities']):
-            response = "I can help you with information about:\n"
-            response += "• Personal info (name, age, location)\n"
-            response += "• Projects (Portfolio Website, User Management System, Sit-In Program, eGrowtify)\n"
-            response += "• Technologies (React, JavaScript, Python, Flask, PHP, MySQL, etc.)\n"
-            response += "• Skills and expertise\n"
-            response += "• Education and background\n"
-            response += "• Contact information\n"
+            response = "**I can help you with information about:**\n\n"
+            response += "**👤 Personal Info:**\n"
+            response += "• Name, age, location, contact details\n\n"
+            response += "**💼 Projects:**\n"
+            response += "• Portfolio Website, User Management System, Sit-In Program, eGrowtify\n\n"
+            response += "**🛠️ Technologies & Skills:**\n"
+            response += "• Programming languages (JavaScript, Python, PHP, TypeScript)\n"
+            response += "• Frontend tech (React, Framer Motion, CSS)\n"
+            response += "• Backend tech (Flask, RESTful APIs)\n"
+            response += "• Databases (MySQL, SQL)\n"
+            response += "• Development tools (Git, GitHub)\n\n"
+            response += "**💻 System & Architecture:**\n"
+            response += "• Portfolio website tech stack\n"
+            response += "• Frontend and backend technologies\n"
+            response += "• System architecture and API endpoints\n"
+            response += "• Features and capabilities\n"
+            response += "• Development practices\n\n"
+            response += "**🎓 Education:**\n"
+            response += "• University, degree, academic journey\n\n"
+            response += "**📧 Contact:**\n"
+            response += "• Email, phone, GitHub profile\n\n"
             response += "Just ask me anything about these topics!"
             return jsonify({
                 'response': response,
@@ -306,8 +508,17 @@ def chatbot():
         
         # Default response
         default_response = "I'm not sure about that specific question. "
-        default_response += "I can help you with information about John Louie's projects, skills, technologies, education, contact info, or personal details. "
-        default_response += "Try asking about a specific project, technology, or ask for help to see what I can answer!"
+        default_response += "I can help you with information about:\n\n"
+        default_response += "• **Developer Info:** Projects, skills, experience, education, contact\n"
+        default_response += "• **Technical Skills:** Programming languages, frameworks, tools\n"
+        default_response += "• **System Info:** Portfolio tech stack, architecture, features, API endpoints\n"
+        default_response += "• **Development:** Practices, methodologies, coding journey\n\n"
+        default_response += "Try asking about:\n"
+        default_response += "• A specific project or technology\n"
+        default_response += "• The portfolio system architecture\n"
+        default_response += "• Frontend/backend technologies\n"
+        default_response += "• Development practices\n"
+        default_response += "• Or type 'help' to see all capabilities!"
         
         return jsonify({
             'response': default_response,

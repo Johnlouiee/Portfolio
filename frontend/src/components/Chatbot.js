@@ -9,7 +9,7 @@ const Chatbot = () => {
   const [messages, setMessages] = useState([
     {
       id: 1,
-      text: "Hello! I'm John Louie's portfolio assistant. How can I help you today?",
+      text: "Hello! I'm John Louie's portfolio assistant. I can help you learn about his projects, technical skills, the portfolio system's tech stack, architecture, and more. What would you like to know?",
       sender: 'bot',
       timestamp: new Date()
     }
@@ -190,7 +190,7 @@ const Chatbot = () => {
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
                 onKeyPress={handleKeyPress}
-                placeholder="Ask me about John Louie's projects, skills, or experience..."
+                placeholder="Ask about tech stack, projects, skills, system architecture..."
                 className="message-input"
               />
               <button onClick={sendMessage} className="send-button">
