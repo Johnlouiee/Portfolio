@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaCode } from 'react-icons/fa';
+import { API_ENDPOINTS } from '../config/api';
 import './Projects.css';
 
 const Projects = () => {
@@ -15,7 +16,7 @@ const Projects = () => {
   const fetchProjects = async () => {
     try {
       console.log('Fetching projects from API...');
-      const response = await fetch('/api/portfolio');
+      const response = await fetch(API_ENDPOINTS.PORTFOLIO);
       console.log('Response status:', response.status);
       
       if (!response.ok) {

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaGithub, FaTwitter, FaFacebook, FaInstagram } from 'react-icons/fa';
+import { API_ENDPOINTS } from '../config/api';
 import './Contact.css';
 
 const Contact = () => {
@@ -25,7 +26,7 @@ const Contact = () => {
     setStatus('');
 
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch(API_ENDPOINTS.CONTACT, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

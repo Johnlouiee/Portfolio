@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaRobot, FaUser, FaPaperPlane, FaTimes, FaMinus } from 'react-icons/fa';
+import { API_ENDPOINTS } from '../config/api';
 import './Chatbot.css';
 
 const Chatbot = () => {
@@ -41,7 +42,7 @@ const Chatbot = () => {
     setIsTyping(true);
 
     try {
-      const response = await fetch('/api/chatbot', {
+      const response = await fetch(API_ENDPOINTS.CHATBOT, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

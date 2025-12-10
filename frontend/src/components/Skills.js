@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaReact, FaPython, FaJs, FaGitAlt, FaDatabase, FaCode } from 'react-icons/fa';
+import { API_ENDPOINTS } from '../config/api';
 import './Skills.css';
 
 const Skills = () => {
@@ -13,7 +14,7 @@ const Skills = () => {
 
   const fetchPortfolioData = async () => {
     try {
-      const response = await fetch('/api/portfolio');
+      const response = await fetch(API_ENDPOINTS.PORTFOLIO);
       const data = await response.json();
       setPortfolioData(data.about);
       setLoading(false);

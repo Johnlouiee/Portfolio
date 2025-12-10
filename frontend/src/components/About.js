@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaCode, FaRocket, FaUsers, FaHeart } from 'react-icons/fa';
+import { API_ENDPOINTS } from '../config/api';
 import './About.css';
 
 const About = () => {
@@ -13,7 +14,7 @@ const About = () => {
 
   const fetchPortfolioData = async () => {
     try {
-      const response = await fetch('/api/portfolio');
+      const response = await fetch(API_ENDPOINTS.PORTFOLIO);
       const data = await response.json();
       setPortfolioData(data.about);
       setLoading(false);
