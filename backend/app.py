@@ -79,18 +79,206 @@ PORTFOLIO_DATA = {
 
 @app.route('/', methods=['GET'])
 def root():
-    """Root endpoint - API information"""
-    return jsonify({
-        'message': 'Portfolio API is running!',
-        'version': '1.0.0',
-        'endpoints': {
-            'portfolio': '/api/portfolio',
-            'contact': '/api/contact',
-            'chatbot': '/api/chatbot',
-            'health': '/api/health'
-        },
-        'status': 'healthy'
-    })
+    """Root endpoint - API information page"""
+    # Check if client wants JSON (API clients or ?format=json)
+    if request.args.get('format') == 'json' or request.headers.get('Accept', '').find('application/json') != -1:
+        return jsonify({
+            'message': 'Portfolio API is running!',
+            'version': '1.0.0',
+            'endpoints': {
+                'portfolio': '/api/portfolio',
+                'contact': '/api/contact',
+                'chatbot': '/api/chatbot',
+                'health': '/api/health'
+            },
+            'status': 'healthy'
+        })
+    
+    # Return HTML page for browsers
+    html_content = """
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Portfolio API - John Louie N. Purisima</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+            }
+            .container {
+                background: white;
+                border-radius: 20px;
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+                max-width: 800px;
+                width: 100%;
+                padding: 40px;
+                animation: fadeIn 0.5s ease-in;
+            }
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            h1 {
+                color: #667eea;
+                margin-bottom: 10px;
+                font-size: 2.5em;
+            }
+            .subtitle {
+                color: #666;
+                margin-bottom: 30px;
+                font-size: 1.1em;
+            }
+            .status-badge {
+                display: inline-block;
+                background: #10b981;
+                color: white;
+                padding: 8px 16px;
+                border-radius: 20px;
+                font-size: 0.9em;
+                font-weight: 600;
+                margin-bottom: 30px;
+            }
+            .info-section {
+                margin-bottom: 30px;
+            }
+            .info-section h2 {
+                color: #333;
+                margin-bottom: 15px;
+                font-size: 1.5em;
+                border-bottom: 2px solid #667eea;
+                padding-bottom: 10px;
+            }
+            .endpoint-list {
+                list-style: none;
+            }
+            .endpoint-item {
+                background: #f8f9fa;
+                padding: 15px 20px;
+                margin-bottom: 10px;
+                border-radius: 10px;
+                border-left: 4px solid #667eea;
+                transition: all 0.3s ease;
+            }
+            .endpoint-item:hover {
+                background: #e9ecef;
+                transform: translateX(5px);
+            }
+            .endpoint-method {
+                display: inline-block;
+                background: #667eea;
+                color: white;
+                padding: 4px 12px;
+                border-radius: 5px;
+                font-size: 0.85em;
+                font-weight: 600;
+                margin-right: 10px;
+            }
+            .endpoint-path {
+                font-family: 'Courier New', monospace;
+                color: #333;
+                font-weight: 600;
+            }
+            .endpoint-desc {
+                color: #666;
+                margin-top: 5px;
+                font-size: 0.9em;
+            }
+            .tech-stack {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                margin-top: 15px;
+            }
+            .tech-badge {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                padding: 8px 16px;
+                border-radius: 20px;
+                font-size: 0.85em;
+                font-weight: 500;
+            }
+            .footer {
+                text-align: center;
+                margin-top: 40px;
+                padding-top: 20px;
+                border-top: 1px solid #e0e0e0;
+                color: #666;
+            }
+            .footer a {
+                color: #667eea;
+                text-decoration: none;
+                font-weight: 600;
+            }
+            .footer a:hover {
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>🚀 Portfolio API</h1>
+            <p class="subtitle">Backend API for John Louie N. Purisima's Portfolio</p>
+            <span class="status-badge">✓ Status: Healthy</span>
+            
+            <div class="info-section">
+                <h2>📡 Available Endpoints</h2>
+                <ul class="endpoint-list">
+                    <li class="endpoint-item">
+                        <span class="endpoint-method">GET</span>
+                        <span class="endpoint-path">/api/portfolio</span>
+                        <div class="endpoint-desc">Get portfolio data including projects, skills, and experience</div>
+                    </li>
+                    <li class="endpoint-item">
+                        <span class="endpoint-method">POST</span>
+                        <span class="endpoint-path">/api/chatbot</span>
+                        <div class="endpoint-desc">Interactive chatbot endpoint for portfolio queries</div>
+                    </li>
+                    <li class="endpoint-item">
+                        <span class="endpoint-method">POST</span>
+                        <span class="endpoint-path">/api/contact</span>
+                        <div class="endpoint-desc">Submit contact form messages</div>
+                    </li>
+                    <li class="endpoint-item">
+                        <span class="endpoint-method">GET</span>
+                        <span class="endpoint-path">/api/health</span>
+                        <div class="endpoint-desc">Health check endpoint for monitoring</div>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="info-section">
+                <h2>🛠️ Tech Stack</h2>
+                <div class="tech-stack">
+                    <span class="tech-badge">Python</span>
+                    <span class="tech-badge">Flask</span>
+                    <span class="tech-badge">RESTful API</span>
+                    <span class="tech-badge">Flask-CORS</span>
+                    <span class="tech-badge">Gunicorn</span>
+                </div>
+            </div>
+            
+            <div class="footer">
+                <p>API Version: <strong>1.0.0</strong></p>
+                <p>For API documentation, use JSON format: <a href="/?format=json">View JSON Response</a></p>
+                <p style="margin-top: 10px;">Developed by <a href="https://github.com/Johnlouiee" target="_blank">John Louie N. Purisima</a></p>
+            </div>
+        </div>
+    </body>
+    </html>
+    """
+    return html_content
 
 @app.route('/api/portfolio', methods=['GET'])
 def get_portfolio():
