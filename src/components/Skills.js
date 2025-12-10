@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FaReact, FaPython, FaJs, FaGitAlt, FaDatabase, FaCode } from 'react-icons/fa';
+import { FaReact, FaNode, FaJs, FaGitAlt, FaDatabase, FaCode } from 'react-icons/fa';
 import { API_ENDPOINTS } from '../config/api';
 import './Skills.css';
 
@@ -35,7 +35,7 @@ const Skills = () => {
     {
       title: 'Backend',
       skills: [
-        { name: 'Python', icon: FaPython, level: 88 },
+        { name: 'Node.js', icon: FaNode, level: 88 },
         { name: 'PHP', icon: FaCode, level: 85 },
         { name: 'Git', icon: FaGitAlt, level: 90 }
       ]
@@ -134,10 +134,10 @@ const Skills = () => {
             </div>
             <div className="summary-item">
               <div className="summary-icon">
-                <FaPython />
+                <FaNode />
               </div>
               <h4>Backend Development</h4>
-              <p>Creating robust server-side applications with Python</p>
+              <p>Creating robust server-side applications with Node.js and Express</p>
             </div>
             <div className="summary-item">
               <div className="summary-icon">

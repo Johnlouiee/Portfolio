@@ -1,19 +1,14 @@
 #!/bin/bash
 # Build script for deployment
-# This builds the frontend and prepares everything for deployment
+# This builds the React app and installs dependencies
 
 set -e  # Exit on error
 
-echo "Building frontend..."
-cd frontend
+echo "=== Installing Dependencies ==="
 npm install
+
+echo "=== Building React App ==="
 export REACT_APP_SERVED_BY_BACKEND=true
 npm run build
-cd ..
 
-echo "Installing backend dependencies..."
-cd backend
-pip install -r requirements.txt
-cd ..
-
-echo "Build complete!"
+echo "=== Build Complete ==="

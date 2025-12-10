@@ -11,8 +11,6 @@ const getApiBaseUrl = () => {
   // In production build
   if (process.env.NODE_ENV === 'production') {
     // If frontend is served from backend (same domain), use relative paths
-    // This is detected by checking if we're in a build that will be served by Flask
-    // For separate frontend deployment, use the backend URL
     // Check if we should use relative paths (when served from same domain)
     if (process.env.REACT_APP_SERVED_BY_BACKEND === 'true') {
       return ''; // Use relative paths when served from same domain

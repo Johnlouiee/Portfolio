@@ -18,15 +18,15 @@ export const resumeData = {
   },
   skills: {
     frontend: ["React", "JavaScript"],
-    backend: ["Python", "PHP"],
+    backend: ["Node.js", "PHP"],
     database: ["MySQL"],
     tools: ["Git"]
   },
   projects: [
     {
       title: "Portfolio Website",
-      description: "Personal portfolio website built with React frontend and Python Flask backend",
-      technologies: ["React", "JavaScript", "Python", "Flask", "CSS"],
+      description: "Personal portfolio website built with React frontend and Node.js Express backend",
+      technologies: ["React", "JavaScript", "Node.js", "Express", "CSS"],
       github: "https://github.com/Johnlouiee/portfolio"
     },
     {

@@ -128,7 +128,7 @@ const Footer = () => {
               © {currentYear} Portfolio. Made with <FaHeart className="heart" /> Purisima
             </p>
             <p className="footer-note">
-              Built with React & Python
+              Built with React & Node.js
             </p>
           </div>
         </motion.div>

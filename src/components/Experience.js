@@ -18,7 +18,7 @@ const Experience = () => {
     {
       title: "Academic Projects",
       description: "Various programming projects completed during coursework including web applications, database systems, and software development projects.",
-      technologies: ["React", "JavaScript", "Python", "MySQL"]
+      technologies: ["React", "JavaScript", "Node.js", "MySQL"]
     }
   ]);
 

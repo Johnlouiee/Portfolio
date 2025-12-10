@@ -1,6 +1,6 @@
-# Portfolio Website - Full Stack Developer
+# Portfolio Website - Full Stack JavaScript
 
-A modern, responsive portfolio website built with React frontend and Python Flask backend, featuring an interactive chatbot, project showcase, and contact form.
+A modern, responsive portfolio website built entirely with JavaScript - React and Node.js Express, featuring an interactive chatbot, project showcase, and contact form.
 
 ## 🚀 Features
 
@@ -14,35 +14,30 @@ A modern, responsive portfolio website built with React frontend and Python Flas
 
 ## 🛠️ Tech Stack
 
-### Frontend
-- React 18
-- React Router
-- Framer Motion (animations)
-- React Icons
-- CSS3
-
-### Backend
-- Python 3
-- Flask
-- Flask-CORS
-- Gunicorn (production server)
+### Technologies
+- **React 18** - Frontend framework
+- **React Router** - Client-side routing
+- **Framer Motion** - Animations
+- **React Icons** - Icon library
+- **Node.js** - Runtime environment
+- **Express.js** - Web framework
+- **CORS** - Cross-origin resource sharing
+- **dotenv** - Environment variables
 
 ## 📁 Project Structure
 
 ```
 Portfolio/
-├── frontend/          # React frontend application
-│   ├── public/        # Static files
-│   ├── src/           # Source code
-│   │   ├── components/  # React components
-│   │   ├── config/      # API configuration
-│   │   └── utils/       # Utility functions
-│   └── package.json
-├── backend/           # Flask backend API
-│   ├── app.py         # Main Flask application
-│   ├── requirements.txt
-│   └── Procfile       # Deployment configuration
-└── README.md
+├── src/              # React frontend source code
+│   ├── components/   # React components
+│   ├── config/       # API configuration
+│   └── utils/        # Utility functions
+├── server/           # Express backend API
+│   └── server.js     # Main Express application
+├── public/           # Static files
+├── build/            # Production build (generated)
+├── package.json      # Dependencies and scripts
+└── Procfile          # Deployment configuration
 ```
 
 ## 🚀 Getting Started
@@ -50,57 +45,38 @@ Portfolio/
 ### Prerequisites
 
 - Node.js (v14 or higher)
-- Python 3.8 or higher
 - npm or yarn
 
-### Frontend Setup
+### Installation
 
-1. Navigate to the frontend directory:
-```bash
-cd frontend
-```
-
-2. Install dependencies:
+1. Install all dependencies:
 ```bash
 npm install
 ```
 
-3. Start the development server:
+2. Create a `.env` file (optional):
 ```bash
-npm start
+cp .env.example .env
 ```
 
-The frontend will run on `http://localhost:3000`
+### Development
 
-### Backend Setup
-
-1. Navigate to the backend directory:
+Run both React app and server together:
 ```bash
-cd backend
+npm run dev
 ```
 
-2. Create a virtual environment (recommended):
+Or run separately:
 ```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+# Server only (Terminal 1)
+npm run server
+
+# React app only (Terminal 2)
+npm run client
 ```
 
-3. Install dependencies:
-```bash
-pip install -r requirements.txt
-```
-
-4. Create a `.env` file (optional):
-```bash
-cp env.example .env
-```
-
-5. Run the Flask server:
-```bash
-python app.py
-```
-
-The backend will run on `http://localhost:5000`
+- React App: `http://localhost:3000`
+- Server API: `http://localhost:5000`
 
 ## 🌐 API Endpoints
 
@@ -111,83 +87,56 @@ The backend will run on `http://localhost:5000`
 
 ## 📦 Building for Production
 
-### Frontend
-
 ```bash
-cd frontend
 npm run build
 ```
 
-The production build will be in the `frontend/build/` directory.
-
-### Backend
-
-The backend is ready for production deployment. Make sure to:
-- Set environment variables (SECRET_KEY, etc.)
-- Use Gunicorn for production: `gunicorn app:app`
+The production build will be in the `build/` directory. The server will automatically serve it in production.
 
 ## 🚢 Deployment
 
-### Single Deployment (Backend Serves Frontend) - Recommended
+### Render Deployment
 
-This setup deploys both frontend and backend together, similar to `ij-portfolio.onrender.com`.
-
-**Render Configuration:**
+**Configuration:**
 1. Connect your GitHub repository
 2. **Root Directory**: Leave empty (root of repo)
 3. **Build Command**: 
    ```bash
    chmod +x render-build.sh && ./render-build.sh
    ```
-   Or use the inline command (if script doesn't work):
+   Or inline:
    ```bash
-   cd frontend && npm install && export REACT_APP_SERVED_BY_BACKEND=true && npm run build && cd .. && cd backend && pip install -r requirements.txt
+   npm install && export REACT_APP_SERVED_BY_BACKEND=true && npm run build
    ```
 4. **Start Command**: 
    ```bash
-   cd backend && gunicorn app:app
+   node server/server.js
    ```
 5. **Environment Variables**:
    - `RENDER=true` (optional)
-   - `SECRET_KEY=your-secret-key-here` (recommended)
+   - `SECRET_KEY=your-secret-key-here` (optional)
+   - `PORT` (automatically set by Render)
 
-The backend will automatically serve the frontend build files in production.
-
-### Separate Deployment (Alternative)
-
-If you prefer separate deployments:
-
-**Backend (Render):**
-1. Root directory: `backend`
-2. Build command: `pip install -r requirements.txt`
-3. Start command: `gunicorn app:app`
-
-**Frontend (Vercel/Netlify):**
-1. Root directory: `frontend`
-2. Build command: `npm run build`
-3. Publish directory: `build`
-4. Set `REACT_APP_API_URL` environment variable to your backend URL
+The server will automatically serve the React build files in production.
 
 ## 🔧 Configuration
 
 ### API Configuration
 
 The frontend automatically detects the environment:
-- **Development**: Uses proxy to `localhost:5000`
-- **Production**: Connects to deployed backend URL
+- **Development**: Uses proxy to `localhost:5000` (configured in `package.json`)
+- **Production**: Uses relative paths when served from same domain
 
 To override, set `REACT_APP_API_URL` environment variable.
 
 ### Environment Variables
 
-Create a `.env` file in the backend directory:
+Create a `.env` file in the root directory:
 
 ```env
 SECRET_KEY=your-secret-key-here
-EMAIL_HOST=smtp.gmail.com
-EMAIL_PORT=587
-EMAIL_USER=your-email@gmail.com
-EMAIL_PASS=your-app-password
+PORT=5000
+NODE_ENV=development
 ```
 
 ## 📝 License
@@ -203,5 +152,5 @@ This project is open source and available under the MIT License.
 ## 🙏 Acknowledgments
 
 - React community for excellent documentation
-- Flask team for the lightweight framework
+- Express.js team for the lightweight framework
 - All open-source contributors

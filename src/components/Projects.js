@@ -36,8 +36,8 @@ const Projects = () => {
         {
           id: 1,
           title: "Portfolio Website",
-          description: "Personal portfolio website built with React frontend and Python Flask backend",
-          technologies: ["React", "JavaScript", "Python", "Flask", "CSS"],
+          description: "Personal portfolio website built with React frontend and Node.js Express backend",
+          technologies: ["React", "JavaScript", "Node.js", "Express", "CSS"],
           image: "/images/portfolio.jpg",
           github: "https://github.com/Johnlouiee/portfolio",
           demo: "https://johnlouiee.github.io/portfolio"
@@ -59,9 +59,9 @@ const Projects = () => {
   const filters = [
     { key: 'all', label: 'All' },
     { key: 'react', label: 'React' },
-    { key: 'python', label: 'Python' },
+    { key: 'nodejs', label: 'Node.js' },
     { key: 'javascript', label: 'JavaScript' },
-    { key: 'javascript', label: 'PHP' }
+    { key: 'php', label: 'PHP' }
   ];
 
   const filteredProjects = projects.filter(project => {

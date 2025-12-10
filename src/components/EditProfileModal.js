@@ -12,7 +12,7 @@ const EditProfileModal = ({ isOpen, onClose, onSave }) => {
     location: 'Cebu, Philippines',
     github: 'https://github.com/Johnlouiee',
     linkedin: 'https://linkedin.com/in/johnlouiee',
-    bio: 'Passionate BSIT student with expertise in React, JavaScript, Python, and MySQL. Currently pursuing my degree at University of Cebu with focus on software development and web technologies.',
+    bio: 'Passionate BSIT student with expertise in React, JavaScript, Node.js, and MySQL. Currently pursuing my degree at University of Cebu with focus on software development and web technologies.',
     profileImage: '/profile.jpg'
   });
 

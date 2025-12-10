@@ -69,8 +69,8 @@ const FavoritesModal = ({ isOpen, onClose }) => {
     {
       id: 1,
       title: "Portfolio Website",
-      description: "Personal portfolio website built with React frontend and Python Flask backend",
-      technologies: ["React", "JavaScript", "Python", "Flask"],
+      description: "Personal portfolio website built with React frontend and Node.js Express backend",
+      technologies: ["React", "JavaScript", "Node.js", "Express"],
       github: "https://github.com/Johnlouiee/portfolio"
     },
     {
@@ -85,7 +85,7 @@ const FavoritesModal = ({ isOpen, onClose }) => {
   const sampleSkills = [
     { id: 1, name: "React", category: "Frontend", level: 90 },
     { id: 2, name: "JavaScript", category: "Frontend", level: 85 },
-    { id: 3, name: "Python", category: "Backend", level: 88 },
+    { id: 3, name: "Node.js", category: "Backend", level: 88 },
     { id: 4, name: "MySQL", category: "Database", level: 80 }
   ];
 
