@@ -5,7 +5,7 @@ A modern, responsive portfolio website built entirely with JavaScript - React an
 ## 🚀 Features
 
 - **Responsive Design**: Works seamlessly on desktop, tablet, and mobile devices
-- **Interactive Chatbot**: AI-powered assistant that answers questions about the developer, projects, and tech stack
+- **Interactive Chatbot**: AI-powered assistant connected to Flowise cloud instance that answers questions about the developer, projects, and tech stack
 - **Dark Mode**: Toggle between light and dark themes
 - **Particle Background**: Animated particle effects for visual appeal
 - **Project Showcase**: Display projects with filtering capabilities
@@ -113,6 +113,9 @@ The production build will be in the `build/` directory. The server will automati
    node server/server.js
    ```
 5. **Environment Variables**:
+   - `FLOWISE_API_URL=https://your-flowise-instance.com` (required for chatbot)
+   - `FLOWISE_CHATFLOW_ID=your_chatflow_id` (required for chatbot)
+   - `FLOWISE_API_KEY=your_api_key` (optional, if Flowise requires authentication)
    - `RENDER=true` (optional)
    - `SECRET_KEY=your-secret-key-here` (optional)
    - `PORT` (automatically set by Render)
@@ -134,10 +137,46 @@ To override, set `REACT_APP_API_URL` environment variable.
 Create a `.env` file in the root directory:
 
 ```env
-SECRET_KEY=your-secret-key-here
+# Flowise Configuration (Required for Chatbot)
+FLOWISE_API_URL=https://your-flowise-instance.com
+FLOWISE_CHATFLOW_ID=your_chatflow_id_here
+FLOWISE_API_KEY=your_api_key_here  # Optional, if Flowise requires authentication
+
+# Server Configuration (Optional)
 PORT=5000
 NODE_ENV=development
+SECRET_KEY=your-secret-key-here
 ```
+
+#### Setting Up the Flowise Chatbot
+
+The chatbot is connected to a **Flowise** cloud instance:
+
+1. **Set Up Flowise**:
+   - Deploy Flowise on a cloud platform (Render, Railway, etc.) or use Flowise Cloud
+   - Create a new chatflow in Flowise
+   - Use the prompt template from `flowise-prompt-template.md` in your Flowise chatflow
+   - Get your chatflow ID from Flowise
+
+2. **Configure Environment Variables**:
+   - Create a `.env` file in the root directory
+   - Add the following:
+     ```env
+     FLOWISE_API_URL=https://your-flowise-instance.com
+     FLOWISE_CHATFLOW_ID=your_chatflow_id_here
+     FLOWISE_API_KEY=your_api_key_here  # Optional, if Flowise requires authentication
+     ```
+
+3. **Using the Prompt Template**:
+   - Open `flowise-prompt-template.md` in this repository
+   - Copy the prompt template content
+   - In Flowise, add a "Prompt Template" node to your chatflow
+   - Paste the template content into the node
+   - Connect it to your chat model (e.g., ChatOpenAI, ChatAnthropic, etc.)
+
+4. **Test the Integration**:
+   - The chatbot will automatically connect to Flowise when the environment variables are set
+   - All responses come from your Flowise chatflow
 
 ## 📝 License
 

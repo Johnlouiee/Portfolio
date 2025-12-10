@@ -30,9 +30,12 @@ const Chatbot = () => {
   const sendMessage = async () => {
     if (!inputMessage.trim()) return;
 
+    // Store the message before clearing input
+    const messageToSend = inputMessage.trim();
+
     const userMessage = {
       id: Date.now(),
-      text: inputMessage,
+      text: messageToSend,
       sender: 'user',
       timestamp: new Date()
     };
@@ -42,20 +45,42 @@ const Chatbot = () => {
     setIsTyping(true);
 
     try {
+      // Prepare conversation history for AI context
+      const conversationHistory = messages
+        .filter(msg => msg.sender !== 'bot' || msg.id !== 1) // Exclude initial greeting
+        .slice(-10) // Keep last 10 messages
+        .map(msg => ({
+          role: msg.sender === 'user' ? 'user' : 'assistant',
+          content: msg.text
+        }));
+
       const response = await fetch(API_ENDPOINTS.CHATBOT, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ message: inputMessage }),
+        body: JSON.stringify({ 
+          message: messageToSend,
+          history: conversationHistory
+        }),
       });
 
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
+      }
+
       const data = await response.json();
+      
+      // Check if response has an error
+      if (data.error) {
+        throw new Error(data.error);
+      }
       
       setTimeout(() => {
         const botMessage = {
           id: Date.now() + 1,
-          text: data.response,
+          text: data.response || data.error || "I'm sorry, I couldn't process that request.",
           sender: 'bot',
           timestamp: new Date()
         };
@@ -68,7 +93,7 @@ const Chatbot = () => {
       console.error('Error sending message:', error);
       const errorMessage = {
         id: Date.now() + 1,
-        text: "Sorry, I'm having trouble connecting. Please try again later.",
+        text: error.message || "Sorry, I'm having trouble connecting. Please check your Flowise configuration and try again later.",
         sender: 'bot',
         timestamp: new Date()
       };
