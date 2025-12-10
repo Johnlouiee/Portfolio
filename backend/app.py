@@ -77,6 +77,21 @@ PORTFOLIO_DATA = {
 ]
 }
 
+@app.route('/', methods=['GET'])
+def root():
+    """Root endpoint - API information"""
+    return jsonify({
+        'message': 'Portfolio API is running!',
+        'version': '1.0.0',
+        'endpoints': {
+            'portfolio': '/api/portfolio',
+            'contact': '/api/contact',
+            'chatbot': '/api/chatbot',
+            'health': '/api/health'
+        },
+        'status': 'healthy'
+    })
+
 @app.route('/api/portfolio', methods=['GET'])
 def get_portfolio():
     """Get portfolio data"""
@@ -529,4 +544,5 @@ def chatbot():
         return jsonify({'error': 'Sorry, I encountered an error. Please try again.'}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug=True, host='0.0.0.0', port=port)
