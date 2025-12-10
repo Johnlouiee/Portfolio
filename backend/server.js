@@ -1,7 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-const path = require('path');
-const fs = require('fs');
 const axios = require('axios');
 require('dotenv').config();
 
@@ -12,9 +10,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Check if production build exists
-const FRONTEND_BUILD_PATH = path.join(__dirname, '../build/index.html');
-const IS_PRODUCTION = fs.existsSync(FRONTEND_BUILD_PATH) || process.env.RENDER === 'true';
+// Backend API only - frontend is deployed separately
 
 // Portfolio data
 const PORTFOLIO_DATA = {
@@ -260,54 +256,43 @@ app.post('/api/chatbot', async (req, res) => {
   }
 });
 
-// Serve frontend in production (after API routes)
-if (IS_PRODUCTION) {
-  // Serve static files from React build directory (CSS, JS, images, etc.)
-  app.use(express.static(path.join(__dirname, '../build')));
-  
-  // Serve React app for all non-API routes (catch-all for React Router)
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../build/index.html'));
-  });
-} else {
-  // In development, show API info for root route
-  app.get('/', (req, res) => {
-    if (req.query.format === 'json' || req.headers.accept?.includes('application/json')) {
-      return res.json({
-        message: 'Portfolio API is running!',
-        version: '1.0.0',
-        endpoints: {
-          portfolio: '/api/portfolio',
-          contact: '/api/contact',
-          chatbot: '/api/chatbot',
-          health: '/api/health'
-        },
-        status: 'healthy',
-        mode: 'development'
-      });
-    }
-    res.send(`
-      <!DOCTYPE html>
-      <html>
-      <head><title>Portfolio API - Development</title></head>
-      <body>
-        <h1>Portfolio API - Development Mode</h1>
-        <p>API is running. Frontend should be running separately on localhost:3000</p>
-        <p><a href="/?format=json">View JSON API Info</a></p>
-      </body>
-      </html>
-    `);
-  });
-  
-  // Error handler for 404 in development
-  app.use((req, res) => {
-    res.status(404).json({ error: 'Not found' });
-  });
-}
+// Backend API only - no static file serving (frontend is separate)
+app.get('/', (req, res) => {
+  if (req.query.format === 'json' || req.headers.accept?.includes('application/json')) {
+    return res.json({
+      message: 'Portfolio API is running!',
+      version: '1.0.0',
+      endpoints: {
+        portfolio: '/api/portfolio',
+        contact: '/api/contact',
+        chatbot: '/api/chatbot',
+        health: '/api/health'
+      },
+      status: 'healthy',
+      mode: 'production'
+    });
+  }
+  res.send(`
+    <!DOCTYPE html>
+    <html>
+    <head><title>Portfolio API</title></head>
+    <body>
+      <h1>Portfolio API</h1>
+      <p>API is running. Frontend is deployed separately.</p>
+      <p><a href="/?format=json">View JSON API Info</a></p>
+    </body>
+    </html>
+  `);
+});
+
+// Error handler for 404
+app.use((req, res) => {
+  res.status(404).json({ error: 'Not found' });
+});
 
 // Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-  console.log(`Mode: ${IS_PRODUCTION ? 'Production' : 'Development'}`);
+  console.log(`Backend API server is running on port ${PORT}`);
+  console.log(`CORS enabled for frontend connections`);
 });

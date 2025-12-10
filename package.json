@@ -9,7 +9,12 @@
     "client": "react-scripts start",
     "build": "react-scripts build",
     "start": "node server/server.js",
-    "install-deps": "npm install"
+    "install-deps": "npm install",
+    "install-frontend": "cd frontend && npm install",
+    "install-backend": "cd backend && npm install",
+    "build-frontend": "cd frontend && npm install && npm run build",
+    "start-frontend": "cd frontend && npm start",
+    "start-backend": "cd backend && npm start"
   },
   "keywords": ["portfolio", "react", "nodejs", "express", "javascript"],
   "author": "John Louie N. Purisima",
