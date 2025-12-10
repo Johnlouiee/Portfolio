@@ -137,7 +137,11 @@ This setup deploys both frontend and backend together, similar to `ij-portfolio.
 2. **Root Directory**: Leave empty (root of repo)
 3. **Build Command**: 
    ```bash
-   cd frontend && npm install && REACT_APP_SERVED_BY_BACKEND=true npm run build && cd .. && cd backend && pip install -r requirements.txt
+   chmod +x render-build.sh && ./render-build.sh
+   ```
+   Or use the inline command (if script doesn't work):
+   ```bash
+   cd frontend && npm install && export REACT_APP_SERVED_BY_BACKEND=true && npm run build && cd .. && cd backend && pip install -r requirements.txt
    ```
 4. **Start Command**: 
    ```bash

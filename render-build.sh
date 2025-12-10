@@ -7,7 +7,8 @@ set -e  # Exit on error
 echo "=== Building Frontend ==="
 cd frontend
 npm install
-REACT_APP_SERVED_BY_BACKEND=true npm run build
+export REACT_APP_SERVED_BY_BACKEND=true
+npm run build
 cd ..
 
 echo "=== Installing Backend Dependencies ==="
