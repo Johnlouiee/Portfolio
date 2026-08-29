@@ -26,8 +26,7 @@ const About = () => {
 
   const stats = [
     { icon: FaCode, number: '2', label: 'Projects Completed' },
-    { icon: FaRocket, number: '3+', label: 'Years Experience' },
-  
+
   ];
 
   if (loading) {
@@ -60,7 +59,7 @@ const About = () => {
             >
               About Me
             </motion.h2>
-            
+
             <motion.div
               className="about-description"
               initial={{ opacity: 0, y: 30 }}
@@ -68,11 +67,9 @@ const About = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
+
               <p>
-                {portfolioData?.description || "I'm a full-stack developer on a journey of growth and discovery. Although I only began practicing coding two years ago, what started as curiosity has evolved into a deep passion for building innovative digital solutions. Today, I'm driven by a strong desire to create clean, efficient, and user-focused applications using modern web technologies."}
-              </p>
-              <p>
-              Outside of coding, I enjoy diving into new tools and frameworks, contributing to open-source projects, and engaging with the developer community. I'm committed to continuous learning and staying in sync with the ever-evolving tech landscape.
+                BSIT graduate with internship experience in Full Stack Development, troubleshooting, data management, and system support. I have foundational knowledge of networking, hardware, software, and databases, along with a Cisco certification. I am adaptable, detail-oriented, and eager to learn and grow professionally.
               </p>
             </motion.div>
 
@@ -112,9 +109,9 @@ const About = () => {
           >
             <div className="image-wrapper">
               <div className="image-placeholder">
-                <img 
-                  src="/profile.jpg" 
-                  alt="John Louie N. Purisima" 
+                <img
+                  src="/gradpic.jpg"
+                  alt="John Louie N. Purisima"
                   className="profile-image"
                 />
               </div>

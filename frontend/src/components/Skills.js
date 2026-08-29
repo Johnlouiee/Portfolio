@@ -43,7 +43,8 @@ const Skills = () => {
     {
       title: 'Database',
       skills: [
-        { name: 'MySQL', icon: FaDatabase, level: 80 }
+        { name: 'MySQL', icon: FaDatabase, level: 80 },
+        { name: 'Supabase', icon: FaDatabase, level: 40 }
       ]
     }
   ];
@@ -115,39 +116,6 @@ const Skills = () => {
             </motion.div>
           ))}
         </div>
-
-        <motion.div
-          className="skills-summary"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          viewport={{ once: true }}
-        >
-          <h3>What I Do</h3>
-          <div className="summary-grid">
-            <div className="summary-item">
-              <div className="summary-icon">
-                <FaReact />
-              </div>
-              <h4>Frontend Development</h4>
-              <p>Building responsive user interfaces with React and JavaScript</p>
-            </div>
-            <div className="summary-item">
-              <div className="summary-icon">
-                <FaNode />
-              </div>
-              <h4>Backend Development</h4>
-              <p>Creating robust server-side applications with Node.js and Express</p>
-            </div>
-            <div className="summary-item">
-              <div className="summary-icon">
-                <FaDatabase />
-              </div>
-              <h4>Database Management</h4>
-              <p>Designing and managing MySQL databases for optimal performance</p>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

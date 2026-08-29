@@ -82,7 +82,7 @@ const AvatarDropdown = () => {
       >
         <div className="avatar-image">
           <img 
-            src="/profile.jpg" 
+            src="/gradpic.jpg" 
             alt="John Louie N. Purisima" 
             className="avatar-img"
           />
@@ -103,7 +103,7 @@ const AvatarDropdown = () => {
               <div className="user-info">
                 <div className="user-avatar">
                   <img 
-                    src="/profile.jpg" 
+                    src="/gradpic.jpg" 
                     alt="John Louie N. Purisima" 
                     className="user-avatar-img"
                   />

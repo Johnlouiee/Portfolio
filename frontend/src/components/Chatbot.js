@@ -1,8 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaRobot, FaUser, FaPaperPlane, FaTimes, FaMinus } from 'react-icons/fa';
+import { FaUser, FaPaperPlane, FaTimes, FaMinus } from 'react-icons/fa';
 import { API_ENDPOINTS } from '../config/api';
 import './Chatbot.css';
+
+const MonkeyIcon = ({ className }) => (
+  <span className={className} style={{ fontSize: 'inherit', lineHeight: 1 }} role="img" aria-label="monkey agent">🐵</span>
+);
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -134,7 +138,7 @@ const Chatbot = () => {
         animate={{ scale: 1 }}
         transition={{ delay: 2 }}
       >
-        <FaRobot />
+        <MonkeyIcon />
       </motion.button>
 
       {/* Chatbot Window */}
@@ -150,7 +154,7 @@ const Chatbot = () => {
             {/* Chatbot Header */}
             <div className="chatbot-header">
               <div className="chatbot-title">
-                <FaRobot className="chatbot-icon" />
+                <MonkeyIcon className="chatbot-icon" />
                 <span>Portfolio Assistant</span>
               </div>
               <div className="chatbot-controls">
@@ -174,7 +178,7 @@ const Chatbot = () => {
                   transition={{ duration: 0.3 }}
                 >
                   <div className="message-avatar">
-                    {message.sender === 'bot' ? <FaRobot /> : <FaUser />}
+                    {message.sender === 'bot' ? <MonkeyIcon /> : <FaUser />}
                   </div>
                   <div className="message-content">
                     <div className="message-text">{message.text}</div>
@@ -195,7 +199,7 @@ const Chatbot = () => {
                   animate={{ opacity: 1 }}
                 >
                   <div className="message-avatar">
-                    <FaRobot />
+                    <MonkeyIcon />
                   </div>
                   <div className="message-content">
                     <div className="typing-indicator">
@@ -236,7 +240,7 @@ const Chatbot = () => {
           animate={{ opacity: 1, scale: 1 }}
           whileHover={{ scale: 1.05 }}
         >
-          <FaRobot />
+          <MonkeyIcon />
           <span>Chat</span>
         </motion.button>
       )}

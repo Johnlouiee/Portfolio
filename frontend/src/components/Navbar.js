@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars, FaTimes, FaGamepad } from 'react-icons/fa';
 import AvatarDropdown from './AvatarDropdown';
 import './Navbar.css';
 
-const Navbar = () => {
+const Navbar = ({ onOpenArcade }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -63,11 +63,25 @@ const Navbar = () => {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              whileHover={{ color: '#667eea' }}
+              whileHover={{ color: '#ffffff' }}
             >
               {item.name}
             </motion.a>
           ))}
+          <motion.button
+            className="nav-arcade-btn"
+            onClick={() => {
+              setIsOpen(false);
+              if (onOpenArcade) onOpenArcade();
+            }}
+            whileHover={{ scale: 1.08 }}
+            whileTap={{ scale: 0.95 }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7 }}
+          >
+            <FaGamepad className="arcade-nav-icon" /> Arcade
+          </motion.button>
         </div>
 
         <div className="nav-actions">

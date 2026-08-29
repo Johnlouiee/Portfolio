@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import './App.css';
@@ -17,12 +17,15 @@ import Chatbot from './components/Chatbot';
 import DarkModeToggle from './components/DarkModeToggle';
 import ParticleBackground from './components/ParticleBackground';
 import ScrollIndicator from './components/ScrollIndicator';
+import RetroRacerModal from './components/RetroRacerModal';
 
 function App() {
+  const [isArcadeOpen, setIsArcadeOpen] = useState(false);
+
   return (
     <Router>
       <div className="App">
-        <Navbar />
+        <Navbar onOpenArcade={() => setIsArcadeOpen(true)} />
         <Routes>
           <Route path="/" element={
             <motion.div
@@ -30,7 +33,7 @@ function App() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
             >
-              <Hero />
+              <Hero onOpenArcade={() => setIsArcadeOpen(true)} />
               <About />
               <Projects />
               <GitHubRepos />
@@ -45,6 +48,10 @@ function App() {
         <DarkModeToggle />
         <ParticleBackground />
         <ScrollIndicator />
+        <RetroRacerModal
+          isOpen={isArcadeOpen}
+          onClose={() => setIsArcadeOpen(false)}
+        />
       </div>
     </Router>
   );

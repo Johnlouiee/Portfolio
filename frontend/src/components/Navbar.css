@@ -2,16 +2,16 @@
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
+  background: rgba(9, 9, 11, 0.9);
+  backdrop-filter: blur(12px);
   z-index: 1000;
   transition: all 0.3s ease;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #27272a;
 }
 
 .navbar.scrolled {
-  background: rgba(255, 255, 255, 0.98);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  background: rgba(9, 9, 11, 0.95);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
 }
 
 .nav-container {
@@ -27,12 +27,9 @@
 .nav-logo a {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #2c3e50;
+  color: #ffffff;
   text-decoration: none;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  letter-spacing: -0.5px;
 }
 
 .nav-menu {
@@ -42,11 +39,15 @@
 }
 
 .nav-link {
-  color: #2c3e50;
+  color: #a1a1aa;
   text-decoration: none;
   font-weight: 500;
   transition: all 0.3s ease;
   position: relative;
+}
+
+.nav-link:hover {
+  color: #ffffff;
 }
 
 .nav-link::after {
@@ -56,12 +57,37 @@
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #ffffff;
   transition: width 0.3s ease;
 }
 
 .nav-link:hover::after {
   width: 100%;
+}
+
+.nav-arcade-btn {
+  background: #000000;
+  color: #ffffff;
+  border: 1px solid #333333;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  transition: all 0.2s ease;
+}
+
+.nav-arcade-btn:hover {
+  background: #18181b;
+  border-color: #52525b;
+}
+
+.arcade-nav-icon {
+  font-size: 1.1rem;
 }
 
 .nav-actions {

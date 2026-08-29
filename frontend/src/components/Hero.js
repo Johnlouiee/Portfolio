@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaTwitter, FaDownload } from 'react-icons/fa';
 import './Hero.css';
 
-const Hero = () => {
+const Hero = ({ onOpenArcade }) => {
   const [text, setText] = useState('');
   const fullText = "Full Stack Developer";
   const [isDeleting, setIsDeleting] = useState(false);
@@ -60,7 +60,7 @@ const Hero = () => {
               I create beautiful, functional, and user-centered digital experiences.
               Let's work together to bring your ideas to life.
             </p>
-            
+
             <div className="hero-buttons">
               <motion.a
                 href="#projects"
@@ -116,17 +116,26 @@ const Hero = () => {
           >
             <div className="image-container">
               <div className="image-placeholder">
-                <img 
-                  src="/profile.jpg" 
-                  alt="John Louie N. Purisima" 
+                <img
+                  src="/gradpic.jpg"
+                  alt="John Louie N. Purisima"
                   className="profile-image"
                 />
                 <div className="image-glow"></div>
+                <motion.button
+                  className="profile-secret-dot"
+                  onClick={onOpenArcade}
+                  title="Click to play Arcade Racing!"
+                  whileHover={{ scale: 1.3 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <span className="dot-pulse"></span>
+                </motion.button>
               </div>
               <div className="floating-elements">
                 <motion.div
                   className="floating-element element-1"
-                  animate={{ 
+                  animate={{
                     y: [-10, 10, -10],
                     rotate: [0, 360, 0],
                     scale: [1, 1.2, 1]
@@ -135,7 +144,7 @@ const Hero = () => {
                 />
                 <motion.div
                   className="floating-element element-2"
-                  animate={{ 
+                  animate={{
                     y: [10, -10, 10],
                     x: [-5, 5, -5],
                     rotate: [0, -180, 0]
@@ -144,7 +153,7 @@ const Hero = () => {
                 />
                 <motion.div
                   className="floating-element element-3"
-                  animate={{ 
+                  animate={{
                     y: [-5, 15, -5],
                     scale: [1, 0.8, 1],
                     rotate: [0, 180, 360]
@@ -153,7 +162,7 @@ const Hero = () => {
                 />
                 <motion.div
                   className="floating-element element-4"
-                  animate={{ 
+                  animate={{
                     y: [0, -20, 0],
                     x: [0, 10, 0],
                     rotate: [0, 90, 180, 270, 360]
@@ -162,7 +171,7 @@ const Hero = () => {
                 />
                 <motion.div
                   className="floating-element element-5"
-                  animate={{ 
+                  animate={{
                     y: [5, -15, 5],
                     x: [5, -5, 5],
                     scale: [0.8, 1.3, 0.8]

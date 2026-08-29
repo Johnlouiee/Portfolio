@@ -21,7 +21,7 @@
 
 .progress-bar {
   height: 100%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #ffffff;
   border-radius: 1px;
   transition: width 0.1s ease;
   position: absolute;
@@ -34,9 +34,9 @@
   flex-direction: column;
   align-items: center;
   gap: 5px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(24, 24, 27, 0.8);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid #27272a;
   border-radius: 25px;
   padding: 12px 16px;
   color: white;
@@ -48,14 +48,14 @@
 }
 
 .scroll-button:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.3);
+  background: #27272a;
+  border-color: #3f3f46;
   transform: translateY(-2px);
 }
 
 .scroll-button svg {
   font-size: 1.2rem;
-  color: #667eea;
+  color: #ffffff;
 }
 
 .scroll-button span {
